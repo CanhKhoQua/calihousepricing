@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c7a2c;
+        }
+    </style>
+</head>
+<body>
+    <h1>California House Price Prediction</h1>
+    <form action="/predict" method="POST">
+        <label>Median Income (MedInc)</label>
+        <input type="number" name="MedInc" step="0.01" placeholder="e.g. 3.5" required>
+
+        <label>House Age (HouseAge)</label>
+        <input type="number" name="HouseAge" step="0.1" placeholder="e.g. 25" required>
+
+        <label>Average Rooms (AveRooms)</label>
+        <input type="number" name="AveRooms" step="0.01" placeholder="e.g. 5.2" required>
+
+        <label>Average Bedrooms (AveBedrms)</label>
+        <input type="number" name="AveBedrms" step="0.01" placeholder="e.g. 1.1" required>
+
+        <label>Population</label>
+        <input type="number" name="Population" step="1" placeholder="e.g. 1200" required>
+
+        <label>Average Occupancy (AveOccup)</label>
+        <input type="number" name="AveOccup" step="0.01" placeholder="e.g. 3.0" required>
+
+        <label>Latitude</label>
+        <input type="number" name="Latitude" step="0.0001" placeholder="e.g. 34.05" required>
+
+        <label>Longitude</label>
+        <input type="number" name="Longitude" step="0.0001" placeholder="e.g. -118.25" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+</body>
+</html>
