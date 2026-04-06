@@ -32,3 +32,16 @@ python app.py
 ```
 
 Then open your browser at `http://127.0.0.1:5000`
+
+---
+
+### Deployment (Render)
+
+This app is hosted for free on [Render](https://render.com) using a Blueprint (`render.yaml`).
+
+To deploy your own:
+1. Push the repo to GitHub
+2. Go to [render.com](https://render.com) and sign up with GitHub
+3. Click **New → Blueprint** and connect your repo
+4. Render will automatically detect `render.yaml` and configure the service
+5. Click **Deploy** — Render will provide a public URL

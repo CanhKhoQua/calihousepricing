@@ -1,3 +1,4 @@
+import os
 import joblib
 from flask import Flask, request, jsonify, render_template
 import numpy as np
@@ -27,4 +28,4 @@ def predict():
     return render_template('home.html', prediction_text=f'Predicted House Price: ${output * 100000:,.2f}')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
