@@ -17,7 +17,6 @@ def test_model_loads():
     model = joblib.load('rfrmodel.pkl')
     assert model is not None
 
-
 def test_model_predicts():
     model = joblib.load('rfrmodel.pkl')
     df = pd.DataFrame([SAMPLE_INPUT], columns=FEATURE_NAMES)
